@@ -1,0 +1,196 @@
+/* ==========================================================================
+   1. ESTILOS BASE (Estilo Premium Oscuro)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cambria', Georgia, serif; /* Tipografía más sofisticada */
+    background-color: #121212; /* Fondo oscuro */
+    color: #e0e0e0;
+}
+
+/* Tarjetas elegantes */
+section {
+    background: #1e1e1e;
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+section:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.05);
+}
+
+section img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(20%); /* Efecto visual artístico */
+}
+
+.texto-tarjeta {
+    padding: 20px;
+}
+
+.texto-tarjeta h2 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    color: #ffb703; /* Dorado suave para destacar títulos */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.texto-tarjeta p {
+    font-size: 0.9rem;
+    color: #b0b0b0;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   2. MENÚ DESPLEGABLE MÓVIL (Acorde al estilo oscuro)
+   ========================================================================== */
+header {
+    background: #000000;
+    padding: 20px;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    font-size: 1.3rem;
+    color: #ffffff;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.logo {
+    width: 45px;
+    height: auto;
+}
+
+.menu-movil {
+    background: none;
+    border: 1px solid #ffb703;
+    color: #ffb703;
+    font-size: 1.3rem;
+    padding: 4px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.nav-links.activo {
+    display: flex;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 5px;
+    border-top: 1px solid #2a2a2a;
+    display: block;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+/* Rejilla en celular: Una columna directa espaciada */
+.contenedor-mosaico {
+    display: grid;
+    padding: 20px;
+    gap: 20px;
+    grid-template-columns: 1fr;
+}
+
+/* ==========================================================================
+   3. MAQUETACIÓN EN MOSAICO ASIMÉTRICO (Para Laptop/PC)
+   ========================================================================== */
+@media (min-width: 850px) {
+    
+    .menu-movil {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex !important;
+        flex-direction: row !important;
+        width: auto !important;
+        gap: 30px;
+        margin-top: 0;
+    }
+
+    .nav-links a {
+        border: none !important;
+        padding: 0 !important;
+        color: #b0b0b0 !important;
+        transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: #ffb703 !important;
+    }
+
+    /* Construimos el mosaico avanzado en PC */
+    .contenedor-mosaico {
+        max-width: 1200px;
+        margin: 40px auto;
+        grid-template-columns: 1fr 1fr 1fr; /* 3 columnas base */
+        grid-template-rows: auto auto;      /* 2 filas de altura automática */
+        grid-template-areas: 
+            "deportes musica moda"
+            "deportes comida tecnologia";
+        gap: 25px;
+    }
+
+    /* Asignamos las posiciones del mapa del mosaico */
+    
+    /* Deportes se estira hacia abajo ocupando toda la columna izquierda */
+    .deportes { 
+        grid-area: deportes; 
+        height: 100%;
+    }
+    .deportes img {
+        height: 100% !important; /* La foto cubre todo lo alto de su bloque */
+        min-height: 350px;
+    }
+
+    .musica { grid-area: musica; }
+    .comida { grid-area: comida; }
+    .moda { grid-area: moda; }
+    .tecnologia { grid-area: tecnologia; }
+
+    /* Ajuste de altura para que queden simétricas las fotos del centro y derecha */
+    .musica img, .comida img, .moda img, .tecnologia img {
+        height: 160px !important;
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #000000;
+    color: #666;
+    font-size: 0.85rem;
+    margin-top: 50px;
+    border-top: 1px solid #2a2a2a;
+}
